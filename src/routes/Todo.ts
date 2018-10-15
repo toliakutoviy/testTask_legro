@@ -70,7 +70,7 @@ export default function(
     });
     server.route({
         method: "GET",
-        path: "/todoItem/listTodoItems",
+        path: "/todoItem/list",
         options: {
             handler: controller.listTodoItems,
             auth: "jwt",

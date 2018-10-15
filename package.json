@@ -12,7 +12,6 @@
     "build": "gulp build",
     "start": "node build/index.js",
     "setup": "npm install",
-    "test": "gulp test",
     "watch": "nodemon --watch build build/index.js"
   },
   "dependencies": {

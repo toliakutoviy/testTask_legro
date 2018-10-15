@@ -6,6 +6,6 @@
     "port": 5000,
     "jwtSecret": "mySuperCoolJWTSTRING",
     "jwtExpiration": "24h",
-    "routePrefix": "api"
+    "routePrefix": ""
   }
 }
