@@ -1,0 +1,12 @@
+{
+  "database": {
+    "connectionString": "mongodb://localhost:27017/testdb"
+  },
+  "server": {
+    "port": 5000,
+    "jwtSecret": "mySuperCoolJWTSTRING",
+    "jwtExpiration": "24h",
+    "routePrefix": "",
+    "plugins": ["logger", "jwt-auth", "swagger"]
+  }
+}
