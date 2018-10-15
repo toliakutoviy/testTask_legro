@@ -1,20 +1,14 @@
 import * as Hapi from "hapi";
-// import * as Boom from "boom";
-// import * as Jwt from "jsonwebtoken";
-// import { IUser, UserModel } from "../models/User";
-//
-import { IDatabase } from "../models/database";
+
 import { IServerConfigurations } from "../config";
 import {IRequest, ICreateTodoItem, IUpdateTodoItem, IFinishTodoItem} from "../interfaces/request";
-import {ITodo, TodoModel} from "../models/Todo";
+import {TodoModel} from "../models/Todo";
 import * as Boom from "boom";
-//
+
 export default class TodoListController {
-    private database: IDatabase;
     private configs: IServerConfigurations;
 
-    constructor(configs: IServerConfigurations, database: IDatabase) {
-        this.database = database;
+    constructor(configs: IServerConfigurations) {
         this.configs = configs;
     }
 
@@ -38,7 +32,7 @@ export default class TodoListController {
             if (todo.user != request.auth.credentials.id) {
                 return h.response({error: "Unathorized"}).code(400)
             }
-            if(!todo.finished ) {
+            if (!todo.finished ) {
                 todo.text = text;
                 await todo.save();
             }
@@ -65,7 +59,7 @@ export default class TodoListController {
             if (todo.user != request.auth.credentials.id) {
                 return h.response({error: "Unathorized"}).code(400)
             }
-            if(!todo.finished ) {
+            if (!todo.finished ) {
                 todo.finished = true;
                 await todo.save();
             }

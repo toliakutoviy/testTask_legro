@@ -1,14 +1,13 @@
 import { IPlugin, IPluginOptions } from "../interfaces/plugin";
 import * as Hapi from "hapi";
 import { IRequest } from "../interfaces/request";
-import { IUser, UserModel } from "../models/User";
+import { UserModel } from "../models/User";
 
 const register = async (
     server: Hapi.Server,
     options: IPluginOptions
 ): Promise<void> => {
     try {
-        const database = options.database;
         const serverConfig = options.serverConfigs;
 
         const validateUser = async (

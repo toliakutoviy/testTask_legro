@@ -15,10 +15,10 @@ process.on("unhandledRejection", (reason: any) => {
 });
 
 // Define async start function
-const start = async ({ config, db }) => {
+const start = async ({ config}) => {
     try {
 
-        const server = await Server.init(config, db);
+        const server = await Server.init(config);
         await server.start();
         console.log("Server running at:", server.info.uri);
     } catch (err) {
@@ -35,4 +35,4 @@ const database = Database.init(dbConfigs);
 const serverConfigs = Configs.getServerConfigs();
 
 // Start the server
-start({ config: serverConfigs, db: database });
+start({ config: serverConfigs});

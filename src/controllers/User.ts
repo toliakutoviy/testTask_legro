@@ -3,16 +3,13 @@ import * as Boom from "boom";
 import * as Jwt from "jsonwebtoken";
 import { IUser, UserModel } from "../models/User";
 
-import { IDatabase } from "../models/database";
 import { IServerConfigurations } from "../config";
 import { IRequest, ILoginRequest } from "../interfaces/request";
 
 export default class UserController {
-    private database: IDatabase;
     private configs: IServerConfigurations;
 
-    constructor(configs: IServerConfigurations, database: IDatabase) {
-        this.database = database;
+    constructor(configs: IServerConfigurations) {
         this.configs = configs;
     }
 

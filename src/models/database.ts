@@ -1,16 +1,7 @@
 import * as Mongoose from "mongoose";
 import { IDataConfiguration } from "../config";
-//import { ILogging, LoggingModel } from "./plugins/logging/logging";
-//import { IUser, UserModel } from "./User";
-//import { ITask, TaskModel } from "./api/tasks/task";
 
-export interface IDatabase {
-    // loggingModel: Mongoose.Model<ILogging>;
-    // userModel: Mongoose.Model<IUser>;
-    // taskModel: Mongoose.Model<ITask>;
-}
-
-export function init(config: IDataConfiguration): IDatabase {
+export function init(config: IDataConfiguration): any {
     (<any>Mongoose).Promise = Promise;
     Mongoose.connect(process.env.MONGO_URL || config.connectionString);
 
@@ -24,9 +15,5 @@ export function init(config: IDataConfiguration): IDatabase {
         console.log(`Connected to database: ${config.connectionString}`);
     });
 
-    return {
-        // loggingModel: LoggingModel,
-        // taskModel: TaskModel,
-        //userModel: UserModel
-    };
+    return {};
 }

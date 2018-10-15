@@ -1,16 +1,14 @@
 import * as Hapi from "hapi";
 import TodoController from "../controllers/Todo";
 import * as TodoValidator from "../libs/todoValidator";
-import { IDatabase } from "../models/database";
 import { IServerConfigurations } from "../config";
 import {jwtValidator} from "../libs/userValidator";
 
 export default function(
     server: Hapi.Server,
     serverConfigs: IServerConfigurations,
-    database: IDatabase
 ) {
-    const controller = new TodoController(serverConfigs, database);
+    const controller = new TodoController(serverConfigs);
     server.bind(controller);
 
     server.route({

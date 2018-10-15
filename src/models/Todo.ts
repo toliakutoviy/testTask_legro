@@ -1,10 +1,9 @@
 import * as Mongoose from "mongoose";
-import {Types} from "mongoose";
 
 export interface ITodo extends Mongoose.Document {
     text: string;
     finished: boolean;
-    user: string
+    user: string;
     createdAt: Date;
     updateAt: Date;
 }

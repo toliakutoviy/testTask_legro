@@ -6,7 +6,6 @@
     "port": 5000,
     "jwtSecret": "mySuperCoolJWTSTRING",
     "jwtExpiration": "24h",
-    "routePrefix": "",
-    "plugins": ["logger", "jwt-auth", "swagger"]
+    "routePrefix": "api"
   }
 }

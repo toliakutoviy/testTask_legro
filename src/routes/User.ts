@@ -1,15 +1,13 @@
 import * as Hapi from "hapi";
 import UserController from "../controllers/User";
 import * as UserValidator from "../libs/userValidator";
-import { IDatabase } from "../models/database";
 import { IServerConfigurations } from "../config";
 
 export default function(
     server: Hapi.Server,
     serverConfigs: IServerConfigurations,
-    database: IDatabase
 ) {
-    const userController = new UserController(serverConfigs, database);
+    const userController = new UserController(serverConfigs);
     server.bind(userController);
 
     server.route({

@@ -2,12 +2,9 @@ import * as Hapi from "hapi";
 import { IServerConfigurations } from "./config";
 import User from "./routes/User";
 import Todo from "./routes/Todo";
-import * as JWT from "./libs/jwt";
-import { IDatabase } from "./models/database";
 
 export async function init(
     configs: IServerConfigurations,
-    database: IDatabase
 ): Promise<Hapi.Server> {
     try {
         const port = process.env.PORT || configs.port;
@@ -26,7 +23,6 @@ export async function init(
         }
 
         const pluginOptions = {
-            database: database,
             serverConfigs: configs
         };
         let jwt = require("./libs/jwt").default()
@@ -36,8 +32,8 @@ export async function init(
 
         console.log("Register Routes");
 
-        User(server, configs, database);
-        Todo(server, configs, database);
+        User(server, configs);
+        Todo(server, configs);
 
         console.log("Routes registered sucessfully.");
 

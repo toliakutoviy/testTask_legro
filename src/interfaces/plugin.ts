@@ -1,9 +1,7 @@
 import * as Hapi from "hapi";
-import { IDatabase } from "../models/database";
 import { IServerConfigurations } from "../config";
 
 export interface IPluginOptions {
-    database: IDatabase;
     serverConfigs: IServerConfigurations;
 }
 
